@@ -1,0 +1,15 @@
+{
+  "label": "film:film_modulator_gain3",
+  "timestamp": "2026-11-21T13:41:43.180259",
+  "n": 12,
+  "control": {
+    "mean": 9.3,
+    "stdev": 4.4,
+    "max": 16.5
+  },
+  "perturbed": {
+    "mean": 10.5,
+    "stdev": 5.6,
+    "max": 21.5
+  }
+}

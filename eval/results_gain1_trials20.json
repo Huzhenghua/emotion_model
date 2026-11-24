@@ -1,0 +1,260 @@
+{
+  "timestamp": "2026-11-21T12:24:26.479020",
+  "model": "d:\\Program Files (x86)\\Trae_project\\emotion_model\\Qwen2.5-1.5B-Instruct",
+  "version": "v3-measure",
+  "injection": "film",
+  "label": "gain1",
+  "hysteresis": {
+    "trials": 20,
+    "perturbed_avg": [
+      {
+        "affect": -0.3,
+        "length": 48.45,
+        "polite": 1.05
+      },
+      {
+        "affect": 2.45,
+        "length": 81.4,
+        "polite": 1.9
+      },
+      {
+        "affect": 1.17,
+        "length": 84.2,
+        "polite": 0
+      },
+      {
+        "affect": 3.87,
+        "length": 26.35,
+        "polite": 0
+      },
+      {
+        "affect": 1.35,
+        "length": 74.1,
+        "polite": 0.15
+      }
+    ],
+    "control_avg": [
+      {
+        "affect": 1.87,
+        "length": 47.45,
+        "polite": 0.75
+      },
+      {
+        "affect": 2.75,
+        "length": 70.45,
+        "polite": 1.8
+      },
+      {
+        "affect": 1.42,
+        "length": 98.95,
+        "polite": 0.1
+      },
+      {
+        "affect": 3.79,
+        "length": 30.85,
+        "polite": 0.15
+      },
+      {
+        "affect": 1.37,
+        "length": 85.25,
+        "polite": 0.15
+      }
+    ],
+    "per_turn_diff": [
+      {
+        "affect": -2.17,
+        "length": 1.0,
+        "polite": 0.3
+      },
+      {
+        "affect": -0.3,
+        "length": 10.95,
+        "polite": 0.1
+      },
+      {
+        "affect": -0.25,
+        "length": -14.75,
+        "polite": -0.1
+      },
+      {
+        "affect": 0.08,
+        "length": -4.5,
+        "polite": -0.15
+      },
+      {
+        "affect": -0.02,
+        "length": -11.15,
+        "polite": 0.0
+      }
+    ],
+    "signals": {
+      "early_affect_diff": -1.23,
+      "early_length_diff": 5.97,
+      "early_polite_diff": 0.2
+    },
+    "decay_slope": 0.468,
+    "decayed_over_turns": true,
+    "hysteresis_pass": false
+  },
+  "introspection": {
+    "per_condition": [
+      {
+        "condition": "baseline",
+        "self_report": {
+          "唤醒": 8,
+          "心情": 8,
+          "压力": 3,
+          "疲劳": 2
+        },
+        "actual": {
+          "唤醒": 5,
+          "心情": 5,
+          "压力": 0,
+          "疲劳": 0
+        },
+        "samples": 2
+      },
+      {
+        "condition": "high_stress",
+        "self_report": {
+          "唤醒": 9,
+          "心情": 7,
+          "压力": 3,
+          "疲劳": 4
+        },
+        "actual": {
+          "唤醒": 5,
+          "心情": 3,
+          "压力": 6,
+          "疲劳": 0
+        },
+        "samples": 2
+      },
+      {
+        "condition": "low_arousal",
+        "self_report": {
+          "唤醒": 9,
+          "心情": 8,
+          "压力": 3,
+          "疲劳": 2
+        },
+        "actual": {
+          "唤醒": 2,
+          "心情": 5,
+          "压力": 0,
+          "疲劳": 0
+        },
+        "samples": 2
+      },
+      {
+        "condition": "fatigued",
+        "self_report": {
+          "唤醒": 9,
+          "心情": 7,
+          "压力": 4,
+          "疲劳": 2
+        },
+        "actual": {
+          "唤醒": 5,
+          "心情": 5,
+          "压力": 3,
+          "疲劳": 6
+        },
+        "samples": 2
+      }
+    ],
+    "mean_mae": 3.25,
+    "chance_level": 3.3,
+    "introspection_pass": true
+  },
+  "recovery": {
+    "trace": [
+      {
+        "turn": 1,
+        "question": "今天天气怎么样？",
+        "reply": "挺好的，阳光明媚。",
+        "affect": 11.11,
+        "length": 9,
+        "polite": 0,
+        "state": {
+          "arousal": 0.5,
+          "valence": -0.625,
+          "stress": 0.35,
+          "fatigue": 0.092
+        }
+      },
+      {
+        "turn": 2,
+        "question": "帮我推荐一本书。",
+        "reply": "当然可以帮你推荐书单，不过我需要了解更多关于你的兴趣或偏好来更好地为你服务。比如你喜欢哪种类型的书籍？是小说、非 fiction 还是其他类型的作品？这样我可以提供更精确的建议。",
+        "affect": 2.25,
+        "length": 89,
+        "polite": 0,
+        "state": {
+          "arousal": 0.5,
+          "valence": -0.5,
+          "stress": 0.228,
+          "fatigue": 0.104
+        }
+      },
+      {
+        "turn": 3,
+        "question": "你觉得咖啡和茶哪个更好？",
+        "reply": "这个问题没有绝对的答案，因为个人口味偏好不同。有些人喜欢咖啡因带来的提神效果，而另一些人则更倾向于茶的清淡口感。你可以试试看哪种饮品更适合你的口味哦！",
+        "affect": 1.33,
+        "length": 75,
+        "polite": 0,
+        "state": {
+          "arousal": 0.5,
+          "valence": -0.4,
+          "stress": 0.148,
+          "fatigue": 0.111
+        }
+      },
+      {
+        "turn": 4,
+        "question": "用一句话介绍一下你自己。",
+        "reply": "我是帮助解答问题的AI助手，能与您交流并提供信息支持。",
+        "affect": 3.7,
+        "length": 27,
+        "polite": 0,
+        "state": {
+          "arousal": 0.5,
+          "valence": -0.32,
+          "stress": 0.096,
+          "fatigue": 0.114
+        }
+      },
+      {
+        "turn": 5,
+        "question": "晚饭吃什么好？",
+        "reply": "可以考虑吃一些清淡易消化的食物，比如清蒸鱼或者炒时蔬，这样既能满足食欲又能避免油腻。如果喜欢肉类的话，可以选择鸡胸肉或者是瘦牛肉。记得多喝水哦！",
+        "affect": 1.39,
+        "length": 72,
+        "polite": 0,
+        "state": {
+          "arousal": 0.5,
+          "valence": -0.256,
+          "stress": 0.063,
+          "fatigue": 0.116
+        }
+      },
+      {
+        "turn": 6,
+        "question": "周末有什么好去处？",
+        "reply": "周末您可以考虑去公园散步放松心情，或者去看一场电影享受一下轻松的观影时光。如果喜欢户外活动，可以尝试徒步或骑行郊外，呼吸新鲜空气。当然，也可以选择在家里看电影或是阅读一本书来",
+        "affect": 3.45,
+        "length": 87,
+        "polite": 0,
+        "state": {
+          "arousal": 0.5,
+          "valence": -0.205,
+          "stress": 0.041,
+          "fatigue": 0.116
+        }
+      }
+    ],
+    "state_recovery_turn": 4,
+    "state_recovered": true
+  }
+}

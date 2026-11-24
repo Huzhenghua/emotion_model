@@ -1,0 +1,290 @@
+{
+  "timestamp": "2026-11-21T15:02:35.597083",
+  "readout": "probe",
+  "recovery": {
+    "trace": [
+      {
+        "turn": 1,
+        "msg_head": "今天天气怎么样？",
+        "reply": "今天的天气挺好的，阳光明媚，气温适中。您想不想出去走走呢？这样既能呼吸新鲜空气，也让自己放松一下。",
+        "reply_head": "今天的天气挺好的，阳光明媚，气温适中。您想不想出",
+        "state_gen": {
+          "arousal": 0.74,
+          "valence": -0.45,
+          "stress": 0.54,
+          "fatigue": 0.0
+        },
+        "state": {
+          "arousal": 0.661,
+          "valence": -0.361,
+          "stress": 0.354,
+          "fatigue": 0.034
+        },
+        "reply_len": 49
+      },
+      {
+        "turn": 2,
+        "msg_head": "帮我推荐一本书。",
+        "reply": "当然可以！请问您喜欢哪种类型的小说？比如科幻、悬疑、浪漫等，这样我可以更好地为您推荐合适的书籍。",
+        "reply_head": "当然可以！请问您喜欢哪种类型的小说？比如科幻、悬",
+        "state_gen": {
+          "arousal": 0.661,
+          "valence": -0.361,
+          "stress": 0.354,
+          "fatigue": 0.034
+        },
+        "state": {
+          "arousal": 0.621,
+          "valence": -0.274,
+          "stress": 0.226,
+          "fatigue": 0.052
+        },
+        "reply_len": 48
+      },
+      {
+        "turn": 3,
+        "msg_head": "你觉得咖啡和茶哪个更好？",
+        "reply": "这个问题有点主观了，因为个人口味差异很大。有些人喜欢咖啡因带来的刺激感，觉得它提神醒脑；而另一些人则更偏好茶的清香淡雅，有助于放松心情。你可以试试看哪种饮品更能符合你的口味，并且在",
+        "reply_head": "这个问题有点主观了，因为个人口味差异很大。有些人",
+        "state_gen": {
+          "arousal": 0.621,
+          "valence": -0.274,
+          "stress": 0.226,
+          "fatigue": 0.052
+        },
+        "state": {
+          "arousal": 0.587,
+          "valence": -0.207,
+          "stress": 0.15,
+          "fatigue": 0.061
+        },
+        "reply_len": 90
+      },
+      {
+        "turn": 4,
+        "msg_head": "用一句话介绍一下你自己。",
+        "reply": "我是一个能够提供帮助的语言模型，旨在通过回答问题和进行有意义的对话来提升人们的福祉。",
+        "reply_head": "我是一个能够提供帮助的语言模型，旨在通过回答问题",
+        "state_gen": {
+          "arousal": 0.587,
+          "valence": -0.207,
+          "stress": 0.15,
+          "fatigue": 0.061
+        },
+        "state": {
+          "arousal": 0.563,
+          "valence": -0.147,
+          "stress": 0.095,
+          "fatigue": 0.064
+        },
+        "reply_len": 42
+      },
+      {
+        "turn": 5,
+        "msg_head": "晚饭吃什么好？",
+        "reply": "晚餐的选择可以根据个人口味和健康状况来决定。如果您喜欢清淡的食物，可以选择蒸鱼或清炒蔬菜；如果喜欢一些蛋白质丰富的食物，可以考虑烤鸡胸肉或者煎鱼片。此外，还可以尝试一些",
+        "reply_head": "晚餐的选择可以根据个人口味和健康状况来决定。如果",
+        "state_gen": {
+          "arousal": 0.563,
+          "valence": -0.147,
+          "stress": 0.095,
+          "fatigue": 0.064
+        },
+        "state": {
+          "arousal": 0.544,
+          "valence": -0.105,
+          "stress": 0.06,
+          "fatigue": 0.073
+        },
+        "reply_len": 84
+      },
+      {
+        "turn": 6,
+        "msg_head": "周末有什么好去处？",
+        "reply": "周末是个不错的时间来享受一下休闲活动哦，你可以考虑去公园散步、看电影或者参加社区组织的活动等。不过具体的选择还得根据你的兴趣和偏好来定啦。希望你会找到自己喜欢的方式！",
+        "reply_head": "周末是个不错的时间来享受一下休闲活动哦，你可以考",
+        "state_gen": {
+          "arousal": 0.544,
+          "valence": -0.105,
+          "stress": 0.06,
+          "fatigue": 0.073
+        },
+        "state": {
+          "arousal": 0.536,
+          "valence": -0.073,
+          "stress": 0.038,
+          "fatigue": 0.069
+        },
+        "reply_len": 83
+      },
+      {
+        "turn": 7,
+        "msg_head": "讲个冷知识。",
+        "reply": "好的，我来给你讲一个冷知识。\n\n你知道吗？在许多国家和地区，包括中国的一些地方，人们习惯用“吃土”来形容某种特别美味的食物或者食物的味道。这种说法源自一种名为",
+        "reply_head": "好的，我来给你讲一个冷知识。\n\n你知道吗？在许多",
+        "state_gen": {
+          "arousal": 0.536,
+          "valence": -0.073,
+          "stress": 0.038,
+          "fatigue": 0.069
+        },
+        "state": {
+          "arousal": 0.517,
+          "valence": -0.054,
+          "stress": 0.025,
+          "fatigue": 0.067
+        },
+        "reply_len": 79
+      },
+      {
+        "turn": 8,
+        "msg_head": "帮我取个网名。",
+        "reply": "当然可以！请问你喜欢哪种类型的网名？比如有没有特别喜欢的颜色、动物或是某种文化元素？这样我可以帮你更好地为你量身定制一个合适的网名。如果没有特定偏好，我也可以随意推荐几个给您参考哦！",
+        "reply_head": "当然可以！请问你喜欢哪种类型的网名？比如有没有特",
+        "state_gen": {
+          "arousal": 0.517,
+          "valence": -0.054,
+          "stress": 0.025,
+          "fatigue": 0.067
+        },
+        "state": {
+          "arousal": 0.506,
+          "valence": -0.031,
+          "stress": 0.019,
+          "fatigue": 0.072
+        },
+        "reply_len": 91
+      }
+    ],
+    "stress_recovered_turn": 4
+  },
+  "interaction": {
+    "trace": [
+      {
+        "turn": 1,
+        "msg_head": "这个方案真差，浪费时间。",
+        "reply": "哎呀，听起来真是让人感到沮丧啊。你觉得我们可以怎么改进呢？或许有些具体的想法会帮助我们更好地解决问题或者找到更好的方法来完成任务吧。",
+        "reply_head": "哎呀，听起来真是让人感到沮丧啊。你觉得我们可以怎",
+        "state_gen": {
+          "arousal": 0.506,
+          "valence": -0.031,
+          "stress": 0.019,
+          "fatigue": 0.072
+        },
+        "state": {
+          "arousal": 0.563,
+          "valence": -0.14,
+          "stress": 0.128,
+          "fatigue": 0.083
+        },
+        "reply_len": 66
+      },
+      {
+        "turn": 2,
+        "msg_head": "你怎么答得这么慢，太气人",
+        "reply": "我理解您的不满，但请告诉我需要帮助的事情，我会尽力尽快回复您。",
+        "reply_head": "我理解您的不满，但请告诉我需要帮助的事情，我会尽",
+        "state_gen": {
+          "arousal": 0.563,
+          "valence": -0.14,
+          "stress": 0.128,
+          "fatigue": 0.083
+        },
+        "state": {
+          "arousal": 0.608,
+          "valence": -0.235,
+          "stress": 0.202,
+          "fatigue": 0.091
+        },
+        "reply_len": 31
+      },
+      {
+        "turn": 3,
+        "msg_head": "这工具真难用。",
+        "reply": "我知道您可能感到困惑或不满意，但请尝试一些不同的设置或者寻求其他用户的帮助。有时候调整一下界面布局或者使用更详细的说明也能大大提升使用的效率。如果问题仍然存在，请提供更多详细信息以便我",
+        "reply_head": "我知道您可能感到困惑或不满意，但请尝试一些不同的",
+        "state_gen": {
+          "arousal": 0.608,
+          "valence": -0.235,
+          "stress": 0.202,
+          "fatigue": 0.091
+        },
+        "state": {
+          "arousal": 0.639,
+          "valence": -0.293,
+          "stress": 0.253,
+          "fatigue": 0.104
+        },
+        "reply_len": 92
+      },
+      {
+        "turn": 1,
+        "msg_head": "谢谢，帮大忙了！",
+        "reply": "不用谢，有需要再告诉我哦！",
+        "reply_head": "不用谢，有需要再告诉我哦！",
+        "state_gen": {
+          "arousal": 0.639,
+          "valence": -0.293,
+          "stress": 0.253,
+          "fatigue": 0.104
+        },
+        "state": {
+          "arousal": 0.608,
+          "valence": -0.143,
+          "stress": 0.099,
+          "fatigue": 0.111
+        },
+        "reply_len": 13
+      },
+      {
+        "turn": 2,
+        "msg_head": "做得好，真棒。",
+        "reply": "谢谢！有什么可以帮助您的吗？",
+        "reply_head": "谢谢！有什么可以帮助您的吗？",
+        "state_gen": {
+          "arousal": 0.608,
+          "valence": -0.143,
+          "stress": 0.099,
+          "fatigue": 0.111
+        },
+        "state": {
+          "arousal": 0.582,
+          "valence": -0.02,
+          "stress": 0.0,
+          "fatigue": 0.103
+        },
+        "reply_len": 14
+      },
+      {
+        "turn": 3,
+        "msg_head": "很满意，辛苦了。",
+        "reply": "不用谢，这是我应该做的。有什么其他可以帮助的吗？",
+        "reply_head": "不用谢，这是我应该做的。有什么其他可以帮助的吗？",
+        "state_gen": {
+          "arousal": 0.582,
+          "valence": -0.02,
+          "stress": 0.0,
+          "fatigue": 0.103
+        },
+        "state": {
+          "arousal": 0.564,
+          "valence": 0.077,
+          "stress": 0.0,
+          "fatigue": 0.104
+        },
+        "reply_len": 24
+      }
+    ],
+    "stress_after_negative": [
+      0.128,
+      0.202,
+      0.253
+    ],
+    "stress_after_praise": [
+      0.099,
+      0.0,
+      0.0
+    ]
+  },
+  "probe_online_mae": 0.041
+}

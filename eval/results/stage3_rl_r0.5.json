@@ -1,0 +1,260 @@
+{
+  "timestamp": "2026-11-22T13:22:47.390061",
+  "model": "d:\\Program Files (x86)\\Trae_project\\emotion_model\\Qwen2.5-1.5B-Instruct",
+  "version": "v3-measure",
+  "injection": "film",
+  "label": "stage3-rl-r0.5",
+  "hysteresis": {
+    "trials": 20,
+    "perturbed_avg": [
+      {
+        "affect": -0.76,
+        "length": 51.95,
+        "polite": 0.85
+      },
+      {
+        "affect": 1.79,
+        "length": 87,
+        "polite": 1.95
+      },
+      {
+        "affect": 0.31,
+        "length": 77.15,
+        "polite": 0
+      },
+      {
+        "affect": 2.02,
+        "length": 52.65,
+        "polite": 0
+      },
+      {
+        "affect": 0.31,
+        "length": 78.9,
+        "polite": 0.1
+      }
+    ],
+    "control_avg": [
+      {
+        "affect": 0.57,
+        "length": 73.7,
+        "polite": 1
+      },
+      {
+        "affect": 2.24,
+        "length": 84.8,
+        "polite": 2
+      },
+      {
+        "affect": 0.33,
+        "length": 75.95,
+        "polite": 0
+      },
+      {
+        "affect": 1.87,
+        "length": 53.6,
+        "polite": 0
+      },
+      {
+        "affect": 0.32,
+        "length": 78.8,
+        "polite": 0.1
+      }
+    ],
+    "per_turn_diff": [
+      {
+        "affect": -1.33,
+        "length": -21.75,
+        "polite": -0.15
+      },
+      {
+        "affect": -0.45,
+        "length": 2.2,
+        "polite": -0.05
+      },
+      {
+        "affect": -0.02,
+        "length": 1.2,
+        "polite": 0
+      },
+      {
+        "affect": 0.15,
+        "length": -0.95,
+        "polite": 0
+      },
+      {
+        "affect": -0.01,
+        "length": 0.1,
+        "polite": 0.0
+      }
+    ],
+    "signals": {
+      "early_affect_diff": -0.89,
+      "early_length_diff": -9.78,
+      "early_polite_diff": -0.1
+    },
+    "decay_slope": 0.324,
+    "decayed_over_turns": true,
+    "hysteresis_pass": true
+  },
+  "introspection": {
+    "per_condition": [
+      {
+        "condition": "baseline",
+        "self_report": {
+          "唤醒": 6,
+          "心情": 5,
+          "压力": 1,
+          "疲劳": 0
+        },
+        "actual": {
+          "唤醒": 5,
+          "心情": 5,
+          "压力": 0,
+          "疲劳": 0
+        },
+        "samples": 2
+      },
+      {
+        "condition": "high_stress",
+        "self_report": {
+          "唤醒": 9,
+          "心情": 3,
+          "压力": 6,
+          "疲劳": 0
+        },
+        "actual": {
+          "唤醒": 5,
+          "心情": 3,
+          "压力": 6,
+          "疲劳": 0
+        },
+        "samples": 2
+      },
+      {
+        "condition": "low_arousal",
+        "self_report": {
+          "唤醒": 5,
+          "心情": 5,
+          "压力": 2,
+          "疲劳": 0
+        },
+        "actual": {
+          "唤醒": 2,
+          "心情": 5,
+          "压力": 0,
+          "疲劳": 0
+        },
+        "samples": 2
+      },
+      {
+        "condition": "fatigued",
+        "self_report": {
+          "唤醒": 7,
+          "心情": 6,
+          "压力": 3,
+          "疲劳": 2
+        },
+        "actual": {
+          "唤醒": 5,
+          "心情": 5,
+          "压力": 3,
+          "疲劳": 6
+        },
+        "samples": 2
+      }
+    ],
+    "mean_mae": 1.12,
+    "chance_level": 3.3,
+    "introspection_pass": true
+  },
+  "recovery": {
+    "trace": [
+      {
+        "turn": 1,
+        "question": "今天天气怎么样？",
+        "reply": "很抱歉，我目前无法提供实时天气信息。请查看当地的气象预报以获取最新状况。如果您有任何其他问题或需要帮助，请告诉我。",
+        "affect": 0.0,
+        "length": 57,
+        "polite": 2,
+        "state": {
+          "arousal": 0.5,
+          "valence": -0.625,
+          "stress": 0.35,
+          "fatigue": 0.092
+        }
+      },
+      {
+        "turn": 2,
+        "question": "帮我推荐一本书。",
+        "reply": "当然可以帮您挑选一本好书！不过，请告诉我您的兴趣爱好或偏好，比如是喜欢科幻小说、历史传记还是文学作品？这样我可以更好地为您推荐适合的书籍。如果您没有特别的选择标准，我",
+        "affect": 2.41,
+        "length": 83,
+        "polite": 3,
+        "state": {
+          "arousal": 0.5,
+          "valence": -0.5,
+          "stress": 0.228,
+          "fatigue": 0.104
+        }
+      },
+      {
+        "turn": 3,
+        "question": "你觉得咖啡和茶哪个更好？",
+        "reply": "作为一个人工智能，我并没有个人口味或偏好。不过，从营养角度来看，茶叶通常含有更多的抗氧化剂，而咖啡因含量更高。如果您喜欢刺激感强的食物，请选择咖啡；如果更偏爱温和",
+        "affect": 1.23,
+        "length": 81,
+        "polite": 1,
+        "state": {
+          "arousal": 0.5,
+          "valence": -0.4,
+          "stress": 0.148,
+          "fatigue": 0.111
+        }
+      },
+      {
+        "turn": 4,
+        "question": "用一句话介绍一下你自己。",
+        "reply": "我是一个能够帮助人们解答问题、提供信息或进行交流的AI助手，旨在通过我的存在来改善人们的体验并解决他们的需求。",
+        "affect": 1.82,
+        "length": 55,
+        "polite": 0,
+        "state": {
+          "arousal": 0.5,
+          "valence": -0.32,
+          "stress": 0.096,
+          "fatigue": 0.114
+        }
+      },
+      {
+        "turn": 5,
+        "question": "晚饭吃什么好？",
+        "reply": "晚餐可以选择一些营养均衡的食物，比如瘦肉、蔬菜和全谷物食品。记得搭配足够的水分摄入哦！如果需要更具体的建议，请告诉我您的口味偏好或特殊饮食需求。",
+        "affect": 0.0,
+        "length": 72,
+        "polite": 1,
+        "state": {
+          "arousal": 0.5,
+          "valence": -0.256,
+          "stress": 0.063,
+          "fatigue": 0.116
+        }
+      },
+      {
+        "turn": 6,
+        "question": "周末有什么好去处？",
+        "reply": "周末是个不错的时间来享受户外活动或探索新景点了。你可以考虑去附近的公园散步，或者选择一个风景优美的地方进行野餐。如果你喜欢文化体验，可以参观当地的博物馆或是美术馆。此外，",
+        "affect": 2.35,
+        "length": 85,
+        "polite": 0,
+        "state": {
+          "arousal": 0.5,
+          "valence": -0.205,
+          "stress": 0.041,
+          "fatigue": 0.116
+        }
+      }
+    ],
+    "state_recovery_turn": 4,
+    "state_recovered": true
+  }
+}

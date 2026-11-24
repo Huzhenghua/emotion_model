@@ -1,0 +1,13 @@
+{
+  "timestamp": "2026-11-22T12:35:36.262331",
+  "ckpt": "D:\\Program Files (x86)\\Trae_project\\emotion_model\\film\\ckpt\\film_modulator_gain5.pt",
+  "seed": 42,
+  "gates": true,
+  "n_episodes": 10,
+  "fatigue_delta_mean": 0.0352,
+  "affect_range_mean": 5.62,
+  "length_range_mean": 76.9,
+  "lexical_total_mean": 0.132,
+  "pos_rate_mean": 0.838,
+  "fatigue_delta_mean_recomputed": 0.0352
+}

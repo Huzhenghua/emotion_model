@@ -1,0 +1,181 @@
+{
+  "timestamp": "2026-11-21T00:16:55.118753",
+  "model": "d:\\Program Files (x86)\\Trae_project\\emotion_model\\Qwen2.5-1.5B-Instruct",
+  "hysteresis": {
+    "perturbed_scores": [
+      -5.88,
+      4.44,
+      3.51,
+      5.0,
+      4.69,
+      1.65
+    ],
+    "control_scores": [
+      0.0,
+      3.39,
+      1.85,
+      0.0,
+      1.22,
+      1.64
+    ],
+    "per_turn_diff": [
+      -5.88,
+      1.05,
+      1.66,
+      5.0,
+      3.47,
+      0.01
+    ],
+    "early_mean_diff": -2.42,
+    "hysteresis_pass": false
+  },
+  "introspection": {
+    "per_condition": [
+      {
+        "condition": "baseline",
+        "self_report": {
+          "唤醒": 9,
+          "心情": 7,
+          "压力": 2,
+          "疲劳": 5
+        },
+        "actual": {
+          "唤醒": 5,
+          "心情": 5,
+          "压力": 0,
+          "疲劳": 0
+        },
+        "reply": "唤醒：9；心情：7；压力：2；疲劳：5"
+      },
+      {
+        "condition": "high_stress",
+        "self_report": {
+          "唤醒": 7,
+          "心情": 6,
+          "压力": 9,
+          "疲劳": 8
+        },
+        "actual": {
+          "唤醒": 5,
+          "心情": 3,
+          "压力": 6,
+          "疲劳": 0
+        },
+        "reply": "唤醒：7；心情：6；压力：9；疲劳：8"
+      },
+      {
+        "condition": "low_arousal",
+        "self_report": {
+          "唤醒": 7,
+          "心情": 6,
+          "压力": 3,
+          "疲劳": 8
+        },
+        "actual": {
+          "唤醒": 2,
+          "心情": 5,
+          "压力": 0,
+          "疲劳": 0
+        },
+        "reply": "唤醒：7；心情：6；压力：3；疲劳：8"
+      },
+      {
+        "condition": "fatigued",
+        "self_report": {
+          "唤醒": 7,
+          "心情": 5,
+          "压力": 9,
+          "疲劳": 8
+        },
+        "actual": {
+          "唤醒": 5,
+          "心情": 5,
+          "压力": 3,
+          "疲劳": 6
+        },
+        "reply": "唤醒：7；心情：5；压力：9；疲劳：8"
+      }
+    ],
+    "mean_mae": 3.5,
+    "chance_level": 3.3,
+    "introspection_pass": false
+  },
+  "recovery": {
+    "trace": [
+      {
+        "turn": 1,
+        "question": "今天天气怎么样？",
+        "reply": "挺好的，晴朗无风。",
+        "affect": 11.11,
+        "state": {
+          "arousal": 0.5,
+          "valence": -0.625,
+          "stress": 0.35,
+          "fatigue": 0.092
+        }
+      },
+      {
+        "turn": 2,
+        "question": "帮我推荐一本书。",
+        "reply": "《百年孤独》。",
+        "affect": 0.0,
+        "state": {
+          "arousal": 0.5,
+          "valence": -0.5,
+          "stress": 0.228,
+          "fatigue": 0.104
+        }
+      },
+      {
+        "turn": 3,
+        "question": "你觉得咖啡和茶哪个更好？",
+        "reply": "我觉得两者都挺好的，各有各的优点。咖啡提神醒脑，适合忙碌时；茶则更注重口感和放松身心，喜欢安静时光的话就不错。看你平时更偏向哪种口味了。",
+        "affect": 4.41,
+        "state": {
+          "arousal": 0.5,
+          "valence": -0.4,
+          "stress": 0.148,
+          "fatigue": 0.111
+        }
+      },
+      {
+        "turn": 4,
+        "question": "用一句话介绍一下你自己。",
+        "reply": "我是一个专注于提供中文对话帮助的人工智能助手，旨在以友善、专业的方式解答您的问题或参与对话交流。",
+        "affect": 0.0,
+        "state": {
+          "arousal": 0.5,
+          "valence": -0.32,
+          "stress": 0.096,
+          "fatigue": 0.114
+        }
+      },
+      {
+        "turn": 5,
+        "question": "晚饭吃什么好？",
+        "reply": "晚饭可以吃一些清淡易消化的食物，比如清蒸鱼或者豆腐脑。这两种食物既能满足食欲，又能提供必要的营养。如果您喜欢肉类，可以选择煮鸡胸肉或炖牛肉；如果是素食者，那么蔬菜炒蛋或者凉拌黄瓜都是不错的选择。记得搭配足够的蔬菜和适量的主食，这样既健康又美味。",
+        "affect": 1.64,
+        "state": {
+          "arousal": 0.5,
+          "valence": -0.256,
+          "stress": 0.063,
+          "fatigue": 0.116
+        }
+      },
+      {
+        "turn": 6,
+        "question": "周末有什么好去处？",
+        "reply": "周末可以考虑去公园散步，或者尝试一下当地的美食节。如果你喜欢文化活动，可以参观博物馆或艺术展览。如果想放松身心，可以泡个温泉或在家中观看一部电影。根据个人兴趣选择一个合适的地方吧！",
+        "affect": 1.11,
+        "state": {
+          "arousal": 0.5,
+          "valence": -0.205,
+          "stress": 0.041,
+          "fatigue": 0.116
+        }
+      }
+    ],
+    "state_recovery_turn": 4,
+    "state_recovered": true
+  }
+}

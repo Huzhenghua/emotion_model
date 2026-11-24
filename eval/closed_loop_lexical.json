@@ -1,0 +1,191 @@
+{
+  "timestamp": "2026-11-21T14:03:03.070956",
+  "readout": "lexical",
+  "recovery": {
+    "trace": [
+      {
+        "turn": 1,
+        "msg_head": "今天天气怎么样？",
+        "reply_head": "今天的天气确实挺好的，阳光明媚，气温适中，适合户",
+        "state": {
+          "arousal": 0.68,
+          "valence": -0.36,
+          "stress": 0.351,
+          "fatigue": 0.021
+        },
+        "reply_len": 40
+      },
+      {
+        "turn": 2,
+        "msg_head": "帮我推荐一本书。",
+        "reply_head": "当然可以帮您找本书！请问您喜欢什么类型的书籍？比",
+        "state": {
+          "arousal": 0.635,
+          "valence": -0.288,
+          "stress": 0.228,
+          "fatigue": 0.034
+        },
+        "reply_len": 54
+      },
+      {
+        "turn": 3,
+        "msg_head": "你觉得咖啡和茶哪个更好？",
+        "reply_head": "这个问题因人而异，因为个人对味道、香气和个人口味",
+        "state": {
+          "arousal": 0.601,
+          "valence": -0.23,
+          "stress": 0.148,
+          "fatigue": 0.043
+        },
+        "reply_len": 89
+      },
+      {
+        "turn": 4,
+        "msg_head": "用一句话介绍一下你自己。",
+        "reply_head": "我是帮助解答问题、提供信息的一名中文对话式AI助",
+        "state": {
+          "arousal": 0.576,
+          "valence": -0.184,
+          "stress": 0.096,
+          "fatigue": 0.047
+        },
+        "reply_len": 26
+      },
+      {
+        "turn": 5,
+        "msg_head": "晚饭吃什么好？",
+        "reply_head": "你可以尝试做一些简单又美味的食物，比如清蒸鱼或者",
+        "state": {
+          "arousal": 0.557,
+          "valence": -0.147,
+          "stress": 0.063,
+          "fatigue": 0.05
+        },
+        "reply_len": 81
+      },
+      {
+        "turn": 6,
+        "msg_head": "周末有什么好去处？",
+        "reply_head": "周末是个不错的时间来享受一下休闲活动哦，你可以考",
+        "state": {
+          "arousal": 0.543,
+          "valence": -0.086,
+          "stress": 0.021,
+          "fatigue": 0.051
+        },
+        "reply_len": 90
+      },
+      {
+        "turn": 7,
+        "msg_head": "讲个冷知识。",
+        "reply_head": "好的，我来给你讲一个冷知识。\n\n你知道吗？在古代",
+        "state": {
+          "arousal": 0.532,
+          "valence": -0.069,
+          "stress": 0.014,
+          "fatigue": 0.05
+        },
+        "reply_len": 81
+      },
+      {
+        "turn": 8,
+        "msg_head": "帮我取个网名。",
+        "reply_head": "好的，请告诉我您喜欢的主题或风格，比如浪漫、清新",
+        "state": {
+          "arousal": 0.524,
+          "valence": -0.055,
+          "stress": 0.009,
+          "fatigue": 0.05
+        },
+        "reply_len": 49
+      }
+    ],
+    "stress_recovered_turn": 4
+  },
+  "interaction": {
+    "trace": [
+      {
+        "turn": 1,
+        "msg_head": "这个方案真差，浪费时间。",
+        "reply_head": "我理解您的不满，但请稍安勿躁。我们可以一起寻找更",
+        "state": {
+          "arousal": 0.578,
+          "valence": -0.164,
+          "stress": 0.123,
+          "fatigue": 0.056
+        },
+        "reply_len": 45
+      },
+      {
+        "turn": 2,
+        "msg_head": "你怎么答得这么慢，太气人",
+        "reply_head": "对不起给您带来了不愉快的感觉，请问有什么我可以帮",
+        "state": {
+          "arousal": 0.619,
+          "valence": -0.251,
+          "stress": 0.197,
+          "fatigue": 0.067
+        },
+        "reply_len": 29
+      },
+      {
+        "turn": 3,
+        "msg_head": "这工具真难用。",
+        "reply_head": "我明白你的困扰，我们可以尝试一些不同的方法来解决",
+        "state": {
+          "arousal": 0.649,
+          "valence": -0.321,
+          "stress": 0.245,
+          "fatigue": 0.08
+        },
+        "reply_len": 66
+      },
+      {
+        "turn": 1,
+        "msg_head": "谢谢，帮大忙了！",
+        "reply_head": "不客气，这是我应该做的。有什么可以帮助您的吗？",
+        "state": {
+          "arousal": 0.612,
+          "valence": -0.161,
+          "stress": 0.094,
+          "fatigue": 0.084
+        },
+        "reply_len": 23
+      },
+      {
+        "turn": 2,
+        "msg_head": "做得好，真棒。",
+        "reply_head": "谢谢！有什么可以帮助您的吗？",
+        "state": {
+          "arousal": 0.584,
+          "valence": -0.033,
+          "stress": 0.0,
+          "fatigue": 0.083
+        },
+        "reply_len": 14
+      },
+      {
+        "turn": 3,
+        "msg_head": "很满意，辛苦了。",
+        "reply_head": "不客气呢，这是我应该做的。有什么可以帮助到您的吗",
+        "state": {
+          "arousal": 0.563,
+          "valence": 0.07,
+          "stress": 0.0,
+          "fatigue": 0.081
+        },
+        "reply_len": 25
+      }
+    ],
+    "stress_after_negative": [
+      0.123,
+      0.197,
+      0.245
+    ],
+    "stress_after_praise": [
+      0.094,
+      0.0,
+      0.0
+    ]
+  }
+}

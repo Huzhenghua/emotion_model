@@ -1,0 +1,19 @@
+# 模型权重不入库：云端从 ModelScope 下载（见 requirements.txt 注释）
+Qwen2.5-*/
+
+# 大型二进制 / 训练产物：1.5B 时代产物已有 zip 归档（emotion_model_backup_20261123.zip），
+# 7B 线探针/调制器按决策②全新训练，不依赖旧 ckpt
+*.pt
+*.zip
+
+# 备份、缓存、临时
+doc_backup/
+__pycache__/
+*.pyc
+.screenshots/
+
+# 断点续跑中间态（progress/buffer 日志只进 zip 归档，results json 保留入库）
+eval/results/*.progress.jsonl
+eval/results/*.buffer.jsonl
+eval/*.progress.jsonl
+eval/*.buffer.jsonl

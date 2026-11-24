@@ -1,0 +1,2 @@
+### 11/23 恢复命令 
+- python eval/run_eval.py --injection film --ckpt rl/ckpt/rl_r0.5_final.pt --gates --trials 20 --seed 202 --memory --replay --label stage2c2_closedloop --out eval/results/stage2c2_closedloop.json

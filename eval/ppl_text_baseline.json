@@ -1,0 +1,15 @@
+{
+  "label": "text-baseline",
+  "timestamp": "2026-11-21T13:43:12.139133",
+  "n": 12,
+  "control": {
+    "mean": 9.3,
+    "stdev": 10.1,
+    "max": 40.8
+  },
+  "perturbed": {
+    "mean": 14.7,
+    "stdev": 19.4,
+    "max": 72.6
+  }
+}

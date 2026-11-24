@@ -1,0 +1,42 @@
+{
+  "timestamp": "2026-11-21T21:46:57.766727",
+  "ckpt": "D:\\Program Files (x86)\\Trae_project\\emotion_model\\film\\ckpt\\film_modulator_gain5.pt",
+  "seed": 42,
+  "gates": true,
+  "mae_baseline": 2.25,
+  "mae_alert_line": 3.09,
+  "task_reward_baseline_train": 0.8572,
+  "task_reward_train_per_probe": [
+    0.872,
+    0.862,
+    0.984,
+    0.768,
+    1.0,
+    0.657
+  ],
+  "task_reward_baseline_heldout": 0.9208,
+  "task_reward_heldout_per_probe": [
+    1.0,
+    1.0,
+    0.813,
+    0.87
+  ],
+  "fatigue_baseline": {
+    "delta_mean": 0.0313,
+    "delta_std": 0.0107,
+    "peak_mean": 0.0313,
+    "deltas": [
+      0.0247,
+      0.0247,
+      0.0468,
+      0.0247,
+      0.0247,
+      0.0468,
+      0.0247,
+      0.0247,
+      0.0468,
+      0.0247
+    ]
+  },
+  "fatigue_retention_line": 0.0219
+}
