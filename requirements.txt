@@ -1,10 +1,11 @@
-# 云端环境（Linux + CUDA）：AWQ 快 kernel（exllama/marlin）需要 gptqmodel 完整构建
+# 云端（Linux + CUDA）环境：AWQ 快 kernel（exllama/marlin）需要 gptqmodel 完整构建
 #
-# 1) 先装 torch（官方 cu128 index；安全检查要求 torch >= 2.13，CVE-2025-3000）：
-#      pip install torch --index-url https://download.pytorch.org/whl/cu128
-# 2) 再装以下包（注意：装 gptqmodel 时加 --no-deps 会漏依赖，正常装即可，
-#    但装完必须核验 torch 未被替换：python -c "import torch; print(torch.cuda.is_available())"
-#    ——Windows 本地惨案见 doc/mistake.md #16）：
+# 一条命令装完（PyPI 的 linux torch 自带全套 CUDA nvidia 依赖，无需 cu128 index——
+# 注意：download.pytorch.org/whl/cu128 最高只有 torch 2.11，装不到 gptqmodel 安全检查
+# 要求的 >=2.13，本地 Windows 惨案见 doc/mistake.md #16）：
+#   pip install -r requirements.txt
+# 装完必须核验 torch 未被替换：
+#   python -c "import torch; print(torch.__version__, torch.cuda.is_available())"
 torch>=2.13,<2.16
 transformers>=5.23
 gptqmodel>=7.12
@@ -14,5 +15,5 @@ modelscope
 # 模型下载（云服务器执行）：
 #   modelscope download --model Qwen/Qwen2.5-7B-Instruct-AWQ --local_dir Qwen2.5-7B-Instruct-AWQ
 #
-# Windows 本地备注：官方 index 不通时用 SJTU 镜像手动装 torch wheel
+# Windows 本地备注：PyPI 只有 linux CUDA wheel，Windows 需手动装 SJTU 镜像 torch wheel
 #   https://mirror.sjtu.edu.cn/pytorch-wheels/cu128/（最高 2.9.1，需 GPTQ_BYPASS_SAFETY_CHECKS=1）
