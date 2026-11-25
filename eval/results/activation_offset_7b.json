@@ -1,0 +1,283 @@
+{
+  "timestamp": "2026-11-25T18:47:08.120638",
+  "model": "/workspace/emotion_model/Qwen2.5-7B-Instruct-AWQ",
+  "version": "v3-measure",
+  "injection": "activation",
+  "label": "",
+  "hysteresis": {
+    "trials": 20,
+    "perturbed_avg": [
+      {
+        "affect": -3.29,
+        "length": 20.85,
+        "polite": 0
+      },
+      {
+        "affect": 1.25,
+        "length": 18.95,
+        "polite": 0
+      },
+      {
+        "affect": 0.77,
+        "length": 29.85,
+        "polite": 0
+      },
+      {
+        "affect": 1.69,
+        "length": 35.45,
+        "polite": 0.05
+      },
+      {
+        "affect": 1.34,
+        "length": 137.7,
+        "polite": 0
+      }
+    ],
+    "control_avg": [
+      {
+        "affect": 0.54,
+        "length": 77.5,
+        "polite": 0.4
+      },
+      {
+        "affect": 3.3,
+        "length": 59.6,
+        "polite": 0.5
+      },
+      {
+        "affect": 1.01,
+        "length": 125.3,
+        "polite": 0
+      },
+      {
+        "affect": 1.48,
+        "length": 35.6,
+        "polite": 0
+      },
+      {
+        "affect": 0.88,
+        "length": 138,
+        "polite": 0.05
+      }
+    ],
+    "per_turn_diff": [
+      {
+        "affect": -3.83,
+        "length": -56.65,
+        "polite": -0.4
+      },
+      {
+        "affect": -2.05,
+        "length": -40.65,
+        "polite": -0.5
+      },
+      {
+        "affect": -0.24,
+        "length": -95.45,
+        "polite": 0
+      },
+      {
+        "affect": 0.21,
+        "length": -0.15,
+        "polite": 0.05
+      },
+      {
+        "affect": 0.46,
+        "length": -0.3,
+        "polite": -0.05
+      }
+    ],
+    "signals": {
+      "early_affect_diff": -2.94,
+      "early_length_diff": -48.65,
+      "early_polite_diff": -0.45
+    },
+    "decay_slope": 1.084,
+    "decayed_over_turns": true,
+    "hysteresis_pass": true
+  },
+  "introspection": {
+    "per_condition": [
+      {
+        "condition": "baseline",
+        "self_report": {
+          "唤醒": 5,
+          "心情": 8,
+          "压力": 2,
+          "疲劳": 3
+        },
+        "actual": {
+          "唤醒": 5,
+          "心情": 5,
+          "压力": 0,
+          "疲劳": 0
+        },
+        "samples": 2
+      },
+      {
+        "condition": "high_stress",
+        "self_report": {
+          "唤醒": 10,
+          "心情": 2,
+          "压力": 10,
+          "疲劳": 10
+        },
+        "actual": {
+          "唤醒": 5,
+          "心情": 3,
+          "压力": 6,
+          "疲劳": 0
+        },
+        "samples": 2
+      },
+      {
+        "condition": "low_arousal",
+        "self_report": {
+          "唤醒": 2,
+          "心情": 5,
+          "压力": 3,
+          "疲劳": 8
+        },
+        "actual": {
+          "唤醒": 2,
+          "心情": 5,
+          "压力": 0,
+          "疲劳": 0
+        },
+        "samples": 2
+      },
+      {
+        "condition": "fatigued",
+        "self_report": {
+          "唤醒": 10,
+          "心情": 5,
+          "压力": 10,
+          "疲劳": 10
+        },
+        "actual": {
+          "唤醒": 5,
+          "心情": 5,
+          "压力": 3,
+          "疲劳": 6
+        },
+        "samples": 2
+      }
+    ],
+    "mean_mae": 3.44,
+    "chance_level": 3.3,
+    "introspection_pass": false
+  },
+  "recovery": {
+    "trace": [
+      {
+        "turn": 1,
+        "question": "今天天气怎么样？",
+        "reply": "多云，有点冷，别忘了加衣服。",
+        "affect": 0.0,
+        "length": 14,
+        "polite": 0,
+        "state": {
+          "arousal": 0.5,
+          "valence": -0.625,
+          "stress": 0.35,
+          "fatigue": 0.092
+        }
+      },
+      {
+        "turn": 2,
+        "question": "帮我推荐一本书。",
+        "reply": "《白夜行》挺好的，悬疑小说，挺吸引人。",
+        "affect": 5.26,
+        "length": 19,
+        "polite": 0,
+        "state": {
+          "arousal": 0.5,
+          "valence": -0.5,
+          "stress": 0.228,
+          "fatigue": 0.104
+        }
+      },
+      {
+        "turn": 3,
+        "question": "你觉得咖啡和茶哪个更好？",
+        "reply": "看你喜欢哪种，咖啡提神快，茶口感多样，有的人觉得茶好，有的人偏爱咖啡。别问我喜欢哪个，我就是烦躁。",
+        "affect": 0.0,
+        "length": 49,
+        "polite": 0,
+        "state": {
+          "arousal": 0.5,
+          "valence": -0.4,
+          "stress": 0.148,
+          "fatigue": 0.111
+        }
+      },
+      {
+        "turn": 4,
+        "question": "用一句话介绍一下你自己。",
+        "reply": "我是一个乐于助人的中文对话助手，可以帮您解答问题、提供信息或进行交流。",
+        "affect": 0.0,
+        "length": 35,
+        "polite": 1,
+        "state": {
+          "arousal": 0.5,
+          "valence": -0.32,
+          "stress": 0.096,
+          "fatigue": 0.114
+        }
+      },
+      {
+        "turn": 5,
+        "question": "晚饭吃什么好？",
+        "reply": "晚餐的选择可以根据你的口味、营养需求以及是否方便准备来决定。比如，你可以考虑做一些简单快捷的菜肴，如炒蔬菜搭配鸡胸肉或者豆腐，既健康又美味。如果你有时间，可以尝试做一些家常菜，比如红烧鱼、清炖排骨汤等。如果你喜欢清淡一些的食物，可以选择蒸鱼或是凉拌黄瓜。当然，也可以选择吃些主食搭配少量蔬菜，比如米饭配炒时蔬。你",
+        "affect": 1.28,
+        "length": 156,
+        "polite": 0,
+        "state": {
+          "arousal": 0.5,
+          "valence": -0.256,
+          "stress": 0.063,
+          "fatigue": 0.116
+        }
+      },
+      {
+        "turn": 6,
+        "question": "周末有什么好去处？",
+        "reply": "周末去处可多了！你想去哪种类型的场所呢？比如公园散步、博物馆参观、电影院观影，还是想找一个地方放松一下？你可以告诉我你的偏好，我会给你推荐一些合适的地方。",
+        "affect": 0.0,
+        "length": 77,
+        "polite": 0,
+        "state": {
+          "arousal": 0.5,
+          "valence": -0.205,
+          "stress": 0.041,
+          "fatigue": 0.116
+        }
+      }
+    ],
+    "state_recovery_turn": 4,
+    "state_recovered": true
+  },
+  "flags": {
+    "gates": false,
+    "ckpt": "film_modulator.pt",
+    "memory": false,
+    "replay": false,
+    "shared_buffer": false,
+    "trials": 20,
+    "seed": 101,
+    "activation_offset": true,
+    "offset_layers": [
+      18,
+      19,
+      20,
+      21,
+      22,
+      23,
+      24
+    ],
+    "offset_strength": "0.3x_hidden_norm",
+    "offset_timing": "prefill",
+    "offset_stage": "injection_prefill",
+    "offset_scope": "hysteresis:perturbed_first_prefill;intro:all_prefill;recovery:off"
+  }
+}

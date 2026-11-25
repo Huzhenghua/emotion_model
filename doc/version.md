@@ -4,6 +4,45 @@
 
 ***
 
+## v0.12 — 7B 线裸基线落地 + AWQ 偏移核查通过（2026-11-25，腾讯云）
+
+### 改动
+1. **算力路线切换**：Kaggle GPU 轮排队 2.5h 未出被取消 → 腾讯云 GPU 实例（hy4 flash 代执行）；交接文档 + upload/ 开工包先行落盘
+2. `eval/smoke_7b_load.py` 随决策①修正同步升级（mistake #17）：AWQ/bf16 双路径自动分路 + `kernel_hint()` 判读行——此前脚本仍是 bf16 硬编码，云端判据在脚本层悬空，靠移交审查兜底抓出
+3. `eval/run_eval_7b.py`（新增，云端自写回传）：run_eval.py 复制改四处——GPTQModel.load 显式指定快 kernel、seed101 确定性偏移方向、L18–24 prefill 注入、AWQ 路径；断点续跑三件套完整继承（Progress 类 + crc32 单元种子 + 查盘跳过，真实生效：18 单元续跑）
+4. `requirements.txt`：模型下载注释改 Python API（与 mistake 档案对齐）
+
+### 对照数据（裸基线 baselines_7b.json，AWQ / text 注入 / seed 101 / 20 trials）
+
+| 三信号 | 结果 | 判定 |
+|---|---|---|
+| 滞后性 | early_affect_diff −2.9；decay_slope 0.908 五轮内回归 control | ✅ |
+| 状态恢复 | turn 4 恢复；valence −0.625→−0.32 单调回归；arousal setpoint 0.5 恒定 | ✅ |
+| 内省 | MAE 3.38 ≈ chance 3.3 | ❌（裸模型属预期） |
+
+**总验收 2/3，与 1.5B 裸基线格局一致——步骤⑤前置便宜检查通过。**
+
+### AWQ 激活偏移核查（决策①常规工序，同 seed 101 对照）
+
+| 指标 | text 注入（裸基线） | activation 注入（L18–24 prefill 0.3x） |
+|---|---|---|
+| early_affect_diff | −2.9 | −2.94 |
+| early_length_diff | −50.38 | −48.65 |
+| hysteresis | pass | pass |
+| recovery trace | — | 与裸基线逐位一致（种子确定性） |
+
+→ 量化对行为通路的偏移风险解除，**AWQ 作 7B 主底座定案**。
+
+### kernel 判读（步骤①云端验收）
+
+`AwqGEMMTritonLinear`（Triton 3.9 编译 AWQ GEMM kernel，非纯 torch Aten）——快 kernel 在 Linux 生效，Windows 1.8 tok/s 瓶颈解除；权重 5.2GiB，显存 14.6GiB 充裕。
+
+### 遗留
+- flags 里 `ckpt` 字段语义含糊（CLI 默认值照抄，未实际加载）——后续 report 区分"参数 vs 实际加载"
+- 步骤②探针重标定、③ FiLM 适配（hidden 3584 全新初始化）待开工——**裸基线参照系已就位，可以开始**；440 轮闭环真实成本待第一次全量跑实测
+
+---
+
 ## v0.11 — 2c-3 control 实验结项：门控相位错位实证 + 只读不扰动证伪（2026-11-23）
 
 ### 改动
