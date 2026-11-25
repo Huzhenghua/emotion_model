@@ -12,8 +12,9 @@ gptqmodel>=7.12
 accelerate>=0.30
 modelscope
 
-# 模型下载（云服务器执行）：
-#   modelscope download --model Qwen/Qwen2.5-7B-Instruct-AWQ --local_dir Qwen2.5-7B-Instruct-AWQ
+# 模型下载（云服务器执行，用 Python API——modelscope CLI 在部分环境不进 PATH，
+# Kaggle v1 教训"modelscope: command not found"，见 doc/mistake.md）：
+#   python -c "from modelscope import snapshot_download; snapshot_download('Qwen/Qwen2.5-7B-Instruct-AWQ', cache_dir='./')"
 #
 # Windows 本地备注：PyPI 只有 linux CUDA wheel，Windows 需手动装 SJTU 镜像 torch wheel
 #   https://mirror.sjtu.edu.cn/pytorch-wheels/cu128/（最高 2.9.1，需 GPTQ_BYPASS_SAFETY_CHECKS=1）

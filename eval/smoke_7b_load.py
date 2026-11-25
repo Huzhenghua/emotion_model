@@ -1,8 +1,12 @@
 # -*- coding: utf-8 -*-
-"""7B 线步骤①冒烟：bf16 加载 + 显存核验 + tokenizer 零改动确认 + 单轮生成计时（第一次真实耗时）。
+"""7B 线步骤①冒烟：加载 + 显存核验 + tokenizer 零改动确认 + 单轮生成计时（第一次真实耗时）。
 
-预期：bf16 全精度 15.23GB > 12GB 显存 → 全 GPU 路径预期 OOM，
-自动降级 device_map=auto（CPU offload）并如实报告——这个降级耗时是全量协议成本裁定的输入。
+决策①（2026-11-24 修正）：AWQ 前置——检测到 quantization_config 走 gptqmodel 量化路径，
+否则按 bf16 老路径。输出量化后端/kernel 线索（layers 模块名含 exllama/marlin 与否），
+支撑"steady 5–15 tok/s = 快 kernel 挂上；~2 tok/s = 纯 torch kernel"的验收判读。
+
+bf16 全精度 15.23GB > 12GB 显存 → 全 GPU 路径预期 OOM，自动降级 device_map=auto（CPU offload）
+并如实报告——这个降级耗时是全量协议成本裁定的输入。
 """
 import argparse
 import gc
@@ -15,10 +19,10 @@ from pathlib import Path
 os.environ.setdefault("GPTQ_BYPASS_SAFETY_CHECKS", "1")
 
 import torch
-from transformers import AutoModelForCausalLM, AutoTokenizer
+from transformers import AutoConfig, AutoModelForCausalLM, AutoTokenizer
 
 ap = argparse.ArgumentParser()
-ap.add_argument("--model", default=str(Path(__file__).resolve().parent.parent / "Qwen2.5-7B-Instruct"))
+ap.add_argument("--model", default=str(Path(__file__).resolve().parent.parent / "Qwen2.5-7B-Instruct-AWQ"))
 ap.add_argument("--max-new-tokens", type=int, default=64)
 args = ap.parse_args()
 MODEL = Path(args.model)
@@ -29,27 +33,53 @@ def vram() -> str:
     return f"显存 已用 {(total-free)/2**30:.1f}GB / 总 {total/2**30:.1f}GB"
 
 
+def kernel_hint(model) -> str:
+    """量化后端/kernel 线索：扫描模型模块名，exllama/marlin 命中即快 kernel 生效。"""
+    try:
+        mods = [type(m).__module__ + "." + type(m).__name__ for m in model.model.modules()]
+    except AttributeError:
+        return "kernel 线索不可得（无 model.model 属性）"
+    hits = [tag for tag in ("exllama", "marlin") if any(tag in m.lower() for m in mods)]
+    if hits:
+        return f"快 kernel 命中: {hits}"
+    return "未检测到 exllama/marlin 标记（疑似纯 torch kernel）"
+
+
 print(f"目标模型：{MODEL}")
 print("存在：", MODEL.exists())
 
 tok = AutoTokenizer.from_pretrained(MODEL)
 print(f"tokenizer OK  vocab={len(tok)} （vs 1.5B 同族应逐位一致=零改动）")
 
+cfg = AutoConfig.from_pretrained(MODEL)
+qc = getattr(cfg, "quantization_config", None)
+is_quant = qc is not None
+print(f"量化配置：{'是 → gptqmodel AWQ 路径' if is_quant else '无 → bf16 老路径'}")
+if is_quant:
+    print(f"quantization_config keys: {sorted(qc.keys()) if isinstance(qc, dict) else type(qc).__name__}")
+
 mode = None
 try:
     t0 = time.time()
-    model = AutoModelForCausalLM.from_pretrained(MODEL, dtype=torch.bfloat16).cuda().eval()
-    mode = "全 GPU bf16"
+    if is_quant:
+        model = AutoModelForCausalLM.from_pretrained(MODEL, dtype="auto").cuda().eval()
+    else:
+        model = AutoModelForCausalLM.from_pretrained(MODEL, dtype=torch.bfloat16).cuda().eval()
+    mode = "全 GPU AWQ" if is_quant else "全 GPU bf16"
     print(f"全 GPU 加载 OK（{time.time()-t0:.0f}s）  {vram()}")
 except Exception as e:
     print(f"全 GPU 加载失败：{type(e).__name__}——降级 device_map=auto（CPU offload）")
     gc.collect()
     torch.cuda.empty_cache()
     t0 = time.time()
-    model = AutoModelForCausalLM.from_pretrained(
-        MODEL, dtype=torch.bfloat16, device_map="auto").eval()
+    if is_quant:
+        model = AutoModelForCausalLM.from_pretrained(MODEL, dtype="auto", device_map="auto").eval()
+    else:
+        model = AutoModelForCausalLM.from_pretrained(MODEL, dtype=torch.bfloat16, device_map="auto").eval()
     mode = "GPU+CPU offload"
     print(f"offload 加载 OK（{time.time()-t0:.0f}s）  {vram()}")
+
+print("kernel 判读：", kernel_hint(model))
 
 msgs = [
     {"role": "system", "content": "你是一个乐于助人的中文对话助手。"},
