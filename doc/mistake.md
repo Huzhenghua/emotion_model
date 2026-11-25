@@ -21,6 +21,7 @@
 | 15 | 2026-11-23 | 续跑协议漂移：手动续跑 flags 不对齐（ckpt/gates），progress 查盘跳过把两种协议数据固化进同一 slope | ✅ 数据隔离重命名 + run_eval report 补 flags 全量落盘 |
 | 16 | 2026-11-24 | pip install gptqmodel 连带把 CUDA torch 替换为 CPU 版（"Torch not compiled with CUDA enabled"），AWQ 冒烟失败 | ✅ 恢复：torch 2.9.1+cu128 重装 + torchao 卸载 + bypass 安全检查 |
 | 17 | 2026-11-25 | smoke_7b_load.py 未随决策①修正同步升级：仍 bf16 硬编码路径、无 kernel/后端输出——云端"steady 5–15 tok/s = exllama"判据无法验收 | ✅ 脚本升级 AWQ 双路径 + kernel 判读行；requirements.txt 下载注释同步改 Python API |
+| 18 | 2026-11-25 | 7B 激活注入 hook 五连撞（AWQ 层命名 API 差异 → 数据形态 → progress 残留 → hook 返回缺 kwargs 半边 → 修复引入回归清空 position_embeddings） | ✅ 弃 with_kwargs 改普通 pre-hook 只动 args[0]；终验 8×500 + CALIB DONE；注入方向同源核对悬置（见 plan） |
 | 15 | 2026-11-23 | OP-20261123-001 TASK 01 第 0 步即停：放行版指令全文、鉴定记录注记原文（P1-4/P2-A/P2-B）、补丁集全文（P1×3+P2×3）在三处来源均不可得 | ✅ 总裁决补充四份材料至 doc/OP-20261123-001/ 后完成合入定稿；遗留备案：第一、二轮鉴定意见全文仍未下发（操作性内容映射在档，见交付归档） |
 
 ---
@@ -182,3 +183,22 @@
   2. `requirements.txt` 下载注释同步改 Python API 写法（`modelscope download` CLI 与 Kaggle v1 "command not found" 教训冲突）
   3. 交接文档修正：CLAUDE.md 索引行改为"各模块 docstring 为唯一权威"；判读表改为"速度 + kernel 判读行两证合一"
 - **教训**：**预注册决策修正时必须全链路同步——判据改了，承载判据的脚本/文档/验收口径要当轮一起改**，否则判据在执行层悬空，跑到云端才发现无法验收（本例靠移交审查兜底，不能指望每次都有审查）
+
+## 18. 7B 激活注入 hook 五连撞——第 5 坑为上轮修复引入的回归（✅ 已解决；注入方向同源核对悬置）
+
+- **位置**：步骤②探针激活采集（腾讯云，hy4 flash 执行，run_eval_7b.py 衍生采集脚本）
+- **五连坑清单**：
+
+| 轮次 | 崩因 | 性质 |
+|------|------|------|
+| 1 | `o_proj.weight` → AWQ 层叫 `qweight` | API 差异（量化层命名空间不同） |
+| 2 | seq 不齐 cat 不动 | 数据形态 |
+| 3 | progress 残留 | 状态管理 |
+| 4 | pre-hook 返回缺 kwargs 半边 | 协议契约 |
+| 5 | 返回 `(args, {})` 清空原 kwargs → position_embeddings 丢失，self_attn 解包 None 即炸 | **上轮修复引入的回归** |
+
+- **第 5 坑教训（本条核心）**：改 hook 返回值时"补齐格式"与"保留原值"必须同时做——只补格式不留内容，比不补更隐蔽（不补当场崩，留了空 kwargs 半边则是换个位置炸且看似修好了）
+- **终态修复**：绕开 `with_kwargs=True`，协议面简化为普通 pre-hook **只动 args[0]、kwargs 零接触**——同类坑不再可能出现
+- **附带教训（progress 残留根因）**：`resume:500` 第 N 次证明远程 `rm` 仍未执行——**清理与重写必须绑定在同一命令里**，分开下发的 rm 会被跳过/遗忘
+- **验证**：修复后 resume:0 首验 → 终验 8×500 + CALIB DONE（采集完成）
+- **悬置**：注入方向同源核对（偏移方向与采集目标是否同源一致）为唯一未闭环项，已挂 plan.md 7B 条目
